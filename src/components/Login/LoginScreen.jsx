@@ -1,9 +1,19 @@
 /* eslint-disable react/prop-types */
-import React from 'react';
+import React, { useContext } from 'react';
+import AuthContext from '../../auth/AuthContext';
+import types from '../../types/types';
 
 const LoginScreen = ({ history }) => {
+  const { dispatch } = useContext(AuthContext);
   const handleLogin = () => {
-    history.replace('/');
+    const lastPath = localStorage.getItem('lastpath');
+    dispatch({
+      type: types.login,
+      payload: {
+        name: 'Ivan',
+      },
+    });
+    history.replace(lastPath || '/marvel');
   };
   return (
     <div className="container mt-5 border">

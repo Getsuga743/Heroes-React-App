@@ -2,11 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import HeroesApp from './HeroesApp';
+import 'animate.css/animate.css';
 
-ReactDOM.render(
-  <HeroesApp />,
-  document.getElementById('root'),
-);
+ReactDOM.render(<HeroesApp />, document.getElementById('root'));
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
