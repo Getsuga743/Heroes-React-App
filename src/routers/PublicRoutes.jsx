@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 import { Redirect, Route } from 'react-router-dom';
 
 const PublicRoutes = ({ isAuthenticated, component: Component, ...rest }) => {
-  console.log(rest);
   return (
     <Route {...rest}>
       {(props) => ((!isAuthenticated) ? <Component {...props} /> : <Redirect to="/" />)}
