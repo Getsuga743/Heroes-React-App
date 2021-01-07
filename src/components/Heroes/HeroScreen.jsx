@@ -10,14 +10,14 @@ import getHeroesById from '../../selectors/getHeroesById';
 const HeroeScreen = ({ history }) => {
   const { heroeId } = useParams();
   const hero = useMemo(() => getHeroesById(heroeId), [heroeId]);
-  if (!hero) {
+  if (hero.length === 0 || !hero) {
     return <Redirect to="/" />;
   }
+
   const [
-    {
-      superhero, publisher, alter_ego, first_appearance, characters,
-    },
+    { superhero, publisher, alter_ego, first_appearance, characters },
   ] = hero;
+
   const handleReturn = () => {
     if (history.length <= 2) {
       history.push('/');
